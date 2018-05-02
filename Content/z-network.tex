@@ -21,3 +21,111 @@
 	Motor, OP-Tisch, Navigationssystem) und außerhalb (z. B. Bildarchiv/PACS, Elektronische
 	Patientenakte) des Surgical Deck verfügen bereits heute über eine entsprechende
 	Schnittstelle (SCB, ONB) oder schnittstellenkompatible Datenformate (DICOM, HL7)."
+
+\subsection{Kommunikations- und Netzwerkarchitekturen}
+1. Der digitale Operationssaal- Kapitel 3
+	". Hierbei handelt es sich jedoch meist um geschlossene,
+	proprietäre Systeme, so dass eine Integration von Komponenten von Drittanbietern
+	nicht oder nur mit hohem Aufwand (Zeit, Kosten) möglich ist. Um diese Einschränkungen
+	zu überwinden, werden herstellerübergreifende Standards und Konzepte für
+	eine modulare Integration von Medizinprodukten im OP benötigt. Die heute verfügbaren
+	Standards und Konzepte decken die Anforderungen an eine modulare Integration
+	nur unzureichend ab. Um diese Hindernisse zu überwinden, wird daher ein
+	neuartiges Integrationskonzept für den OP basierend auf einer service-orientierten
+	Architektur vorgestellt.
+	Die verschiedenen Medizinprodukte stehen dabei in einem Netzwerk als Services
+	zur Verfügung bzw. greifen auf Services zu. Eine Verwaltung des Gesamtsystems
+	erfolgt über zentrale Komponenten, die über standardisierte Schnittstellen und den
+	Open-Surgical-Communication-Bus als zentrales Transportmedium mit den Einzelkomponenten
+	kommunizieren. Standardisierte Schnittstellen, die ausgehend von der
+	IEEE-11073-Nomenklatur entworfen wurden, ermöglichen den modularen und flexiblen
+	Austausch von Komponenten"
+	
+	"In modernen Operationssälen (OP) nimmt die Komplexität der Mensch-Technik-
+	Interaktion durch den Einsatz von technischen Geräten und computergestützten
+	Assistenzsystemen mehr und mehr zu. Um die Handhabung zu erleichtern und den
+	Workflow zu optimieren, bieten verschiedene Medizintechnikhersteller Integrationslösungen
+	für den OP an, sogenannte Integrated Operating Room Systems (IORS)
+	[1, 2]. Das primäre Ziel ist, die Anzahl unterschiedlich gestalteter Mensch-Maschine-
+	Schnittstellen im OP zu reduzieren und einen zentralen Zugriff auf die Bedienung
+	aller relevanten Geräte zu ermöglichen.
+	Ein weiteres wichtiges Ziel ist es, die Kommunikation und den Datenaustausch
+	zwischen den Geräten zu vereinfachen bzw. zu ermöglichen [3, 4]."
+	
+	"Dies kann zum einen zu einer Einschränkung der Behandlungsoptionen für den
+	individuellen Patienten führen, da die Integration und Anwendung von eventuell
+	optimaleren Systemkomponenten konkurrierender Anbieter nicht ermöglicht wird
+	[6]. Zum anderen ergeben sich durch die Abhängigkeiten der Kliniken von den Herstellern
+	der IORS auch potenziell ökonomische Nachteile. Die aktuellen Probleme
+	integrierter OP-Systeme sind in Abbildung 3.1 zusammengefasst.
+	Eine modulare und herstellerübergreifende Vernetzung wird durch fehlende
+	Schnittstellen- und Protokollstandards verhindert bzw. erschwert [7]. Mit DICOM, HL7
+	und IHE existieren Standards zum Datenaustausch im medizinischen Umfeld, jedoch
+	decken sie nur einen Teil der Aspekte des Informationsaustausches im Operationssaal
+	ab.
+%%	-->	 Modularität und Flexibilität ist eingeschränkt
+%%	 Innovationen und Optimierungen werden behindert
+%%	 Belastungen und Risiken durch eingeschränkte Gebrauchstauglichkeit"	
+	
+	"Die IEC 80001-1 (Application of risk management for IT-networks incorporating
+	medical devices) soll zukünftig eine Grundlage für die modulare, herstellerübergreifende
+	Integration von Medizinprodukten in klinische IT-Netzwerke bilden [10]. Sie
+	legt die Rollen und Verantwortlichkeiten fest und beschreibt die Maßnahmen des
+	Risikomanagements im Gesamtkontext.
+	Zur technischen Umsetzung entsprechender Integrationslösungen werden offene
+	Architekturen und Standards für Plug and Play-Lösungen benötigt. Im Folgenden wird
+	ein kurzer Überblick über kommerzielle IORS gegeben und anschließend das Konzept
+	einer offenen, modularen, herstellerunabhängigen Architektur für die Integration
+	von medizinischen Geräten im OP vorgestellt, das derzeit im Rahmen des Projektes
+	smartOR exemplarisch umgesetzt wird."
+	
+	"Das smartOR-Integrationsframework besteht aus folgenden Hauptkomponenten:
+	ein Open Surgical Communication Bus (OSCB), der durch ein IP-basiertes Netzwerk
+	umgesetzt und gegebenenfalls durch einen zusätzlichen zentralen Kommunikationsserver
+	unterstützt wird, sowie medizinischen Geräten und Komponenten bzw. Hardund
+	Softwaremodulen, die als Service Provider und/oder Service Consumer Dienste
+	über den OSCB nutzen und/oder bereitstellen.
+	Der OSCB stellt das zentrale Übertragungsmedium und damit die gemeinsame
+	Kommunikationsgrundlage für die Geräte dar. Um eine Kommunikation zu ermöglichen,
+	ist die Verwendung von standardisierten und offenen Schnittstellen für die
+	verschiedenen Medizingeräte ein zentraler Aspekt. In der SOA werden die Geräte und
+	ihre Funktionen gekapselt und so ihre Gerätefunktionen als Dienste über standardisierte
+	Schnittstellen via OSCB anderen Geräten angeboten."
+	
+\subsection{Sicherheitsprobleme durch Netzwerkkommunikation}
+1. Der digitale Operationssaal- Kapitel 3
+
+	"Die einzige Verbindung zwischen dem OP-IT-Netzwerk und dem Klinik-ITNetzwerk
+	wird über ein Gateway realisiert. Eine Kommunikation mit Systemen, die
+	nicht dem Netzwerk angehören (etwa KIS- oder PACS-Systeme), darf ausschließlich
+	über das Gateway erfolgen, das die beiden Netzwerke entsprechend den jeweiligen
+	Sicherheitsanforderungen logisch trennt. Dazu gehört der Einsatz einer Firewall, um
+	unerwünschten Datenverkehr sowohl in das als auch aus dem Netzwerk zu blockieren
+	und Angriffe von außen (z. B. durch Malware oder Hacker) abzuwehren [22]."
+	
+	"Durch die Vernetzung und den Austausch von Daten über ein Local Area Network
+	werden die medizinischen Geräte enger in die IT-Welt eingebunden und sind von
+	Gefahren betroffen. Es müssen Verfahren zum Schutz des klinischen IT-Netzwerkes
+	implementiert und validiert werden. Als grundlegende Schutzmaßnahme wurde ein
+	Gateway vorgesehen, was jedoch alleine nicht ausreichend ist. In einem Netzwerk von
+	Medizinprodukten existieren grundsätzlich verschiedene Interpretationen des Begriffs
+	„Sicherheit“, die sich inhaltlich nur wenig überschneiden. Zum einen ist damit die
+	unmittelbare Sicherheit von Patienten, OP-Personal und sonstigen Personen angesprochen,
+	auf die das Gerät bei der Ausübung seiner Funktion Einfluss nimmt. Beispielsweise
+	kann ein Anästhesiegerät durch falsche Einstellungen oder eine Spritzenpumpe
+	durch falsche Dosierung intolerablen Schaden verursachen. Dieses Problem besteht
+	jedoch bereits wenn das Gerät nicht vernetzt ist. Durch die Vernetzung ergeben sich
+	neue Möglichkeiten des Zugriffs. Es muss unter anderem sichergestellt werden, dass
+	ein Medizingerät nur authentisierte, verifizierte und validierte Befehle entgegennimmt
+	und ausführt. Insbesondere muss sichergestellt werden, dass das befehlende Gerät zur
+	Abgabe der entsprechenden Befehle berechtigt ist.
+	Die geforderten Eigenschaften [37] zur Informationssicherheit"
+	
+	"Im Hinblick auf den Datenschutz ist eine vertrauliche
+	Übermittlung von sensiblen Daten wie Patientenidentität, Vitalparameter,
+	Krankengeschichte und Medikation unerlässlich. Daher sind die beteiligten Geräte
+	vor unberechtigtem Zugriff und vor Ausspähen zu schützen. Ein möglicher Ansatz ist
+	die Erweiterung WS-Security für SOAP aus der WS-*-Familie. WS-Security erlaubt es,
+	SOAP-Nachrichten zu signieren, um die Integrität der Nachricht nachzuweisen; Nachrichten
+	können verschlüsselt übertragen werden, um Vertraulichkeit sicherzustellen
+	und es kann über Sicherheitstoken die Identität des Absenders bewiesen werden"
