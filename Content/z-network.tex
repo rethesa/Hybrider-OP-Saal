@@ -1,7 +1,7 @@
-\chapter{\iflanguage{ngerman}{Netzwerkkommunikation}{Network communication}}
+\chapter{\iflanguage{ngerman}{Netzwerkkommunikation und Datenaustausch}{Network communication}}
 \label{sec:overview}
 
-\subsection{Kommunikations- und Netzwerkarchitekturen}
+KOMMUNIKATIONS UND NETZWERKARCHITEKTUREN
 1. Der digitale Operationssaal- Kapitel 3
 	". Hierbei handelt es sich jedoch meist um geschlossene,
 	proprietäre Systeme, so dass eine Integration von Komponenten von Drittanbietern
@@ -71,42 +71,45 @@
 	ihre Funktionen gekapselt und so ihre Gerätefunktionen als Dienste über standardisierte
 	Schnittstellen via OSCB anderen Geräten angeboten."
 	
-\subsection{Sicherheitsprobleme durch Netzwerkkommunikation}
+	
+\subsection{Service Oriented Architecture}
+\subsection{DICOM und PACS}
+\subsection{Sicherheitsprobleme und Datenschutz}
 1. Der digitale Operationssaal- Kapitel 3
 
-	"Die einzige Verbindung zwischen dem OP-IT-Netzwerk und dem Klinik-ITNetzwerk
-	wird über ein Gateway realisiert. Eine Kommunikation mit Systemen, die
-	nicht dem Netzwerk angehören (etwa KIS- oder PACS-Systeme), darf ausschließlich
-	über das Gateway erfolgen, das die beiden Netzwerke entsprechend den jeweiligen
-	Sicherheitsanforderungen logisch trennt. Dazu gehört der Einsatz einer Firewall, um
-	unerwünschten Datenverkehr sowohl in das als auch aus dem Netzwerk zu blockieren
-	und Angriffe von außen (z. B. durch Malware oder Hacker) abzuwehren [22]."
-	
-	"Durch die Vernetzung und den Austausch von Daten über ein Local Area Network
-	werden die medizinischen Geräte enger in die IT-Welt eingebunden und sind von
-	Gefahren betroffen. Es müssen Verfahren zum Schutz des klinischen IT-Netzwerkes
-	implementiert und validiert werden. Als grundlegende Schutzmaßnahme wurde ein
-	Gateway vorgesehen, was jedoch alleine nicht ausreichend ist. In einem Netzwerk von
-	Medizinprodukten existieren grundsätzlich verschiedene Interpretationen des Begriffs
-	„Sicherheit“, die sich inhaltlich nur wenig überschneiden. Zum einen ist damit die
-	unmittelbare Sicherheit von Patienten, OP-Personal und sonstigen Personen angesprochen,
-	auf die das Gerät bei der Ausübung seiner Funktion Einfluss nimmt. Beispielsweise
-	kann ein Anästhesiegerät durch falsche Einstellungen oder eine Spritzenpumpe
-	durch falsche Dosierung intolerablen Schaden verursachen. Dieses Problem besteht
-	jedoch bereits wenn das Gerät nicht vernetzt ist. Durch die Vernetzung ergeben sich
-	neue Möglichkeiten des Zugriffs. Es muss unter anderem sichergestellt werden, dass
-	ein Medizingerät nur authentisierte, verifizierte und validierte Befehle entgegennimmt
-	und ausführt. Insbesondere muss sichergestellt werden, dass das befehlende Gerät zur
-	Abgabe der entsprechenden Befehle berechtigt ist.
-	Die geforderten Eigenschaften [37] zur Informationssicherheit"
-	
-	"Im Hinblick auf den Datenschutz ist eine vertrauliche
-	Übermittlung von sensiblen Daten wie Patientenidentität, Vitalparameter,
-	Krankengeschichte und Medikation unerlässlich. Daher sind die beteiligten Geräte
-	vor unberechtigtem Zugriff und vor Ausspähen zu schützen. Ein möglicher Ansatz ist
-	die Erweiterung WS-Security für SOAP aus der WS-*-Familie. WS-Security erlaubt es,
-	SOAP-Nachrichten zu signieren, um die Integrität der Nachricht nachzuweisen; Nachrichten
-	können verschlüsselt übertragen werden, um Vertraulichkeit sicherzustellen
-	und es kann über Sicherheitstoken die Identität des Absenders bewiesen werden."
-	
-	BLAA BLKI
+"Die einzige Verbindung zwischen dem OP-IT-Netzwerk und dem Klinik-ITNetzwerk
+wird über ein Gateway realisiert. Eine Kommunikation mit Systemen, die
+nicht dem Netzwerk angehören (etwa KIS- oder PACS-Systeme), darf ausschließlich
+über das Gateway erfolgen, das die beiden Netzwerke entsprechend den jeweiligen
+Sicherheitsanforderungen logisch trennt. Dazu gehört der Einsatz einer Firewall, um
+unerwünschten Datenverkehr sowohl in das als auch aus dem Netzwerk zu blockieren
+und Angriffe von außen (z. B. durch Malware oder Hacker) abzuwehren [22]."
+
+"Durch die Vernetzung und den Austausch von Daten über ein Local Area Network
+werden die medizinischen Geräte enger in die IT-Welt eingebunden und sind von
+Gefahren betroffen. Es müssen Verfahren zum Schutz des klinischen IT-Netzwerkes
+implementiert und validiert werden. Als grundlegende Schutzmaßnahme wurde ein
+Gateway vorgesehen, was jedoch alleine nicht ausreichend ist. In einem Netzwerk von
+Medizinprodukten existieren grundsätzlich verschiedene Interpretationen des Begriffs
+„Sicherheit“, die sich inhaltlich nur wenig überschneiden. Zum einen ist damit die
+unmittelbare Sicherheit von Patienten, OP-Personal und sonstigen Personen angesprochen,
+auf die das Gerät bei der Ausübung seiner Funktion Einfluss nimmt. Beispielsweise
+kann ein Anästhesiegerät durch falsche Einstellungen oder eine Spritzenpumpe
+durch falsche Dosierung intolerablen Schaden verursachen. Dieses Problem besteht
+jedoch bereits wenn das Gerät nicht vernetzt ist. Durch die Vernetzung ergeben sich
+neue Möglichkeiten des Zugriffs. Es muss unter anderem sichergestellt werden, dass
+ein Medizingerät nur authentisierte, verifizierte und validierte Befehle entgegennimmt
+und ausführt. Insbesondere muss sichergestellt werden, dass das befehlende Gerät zur
+Abgabe der entsprechenden Befehle berechtigt ist.
+Die geforderten Eigenschaften [37] zur Informationssicherheit"
+
+"Im Hinblick auf den Datenschutz ist eine vertrauliche
+Übermittlung von sensiblen Daten wie Patientenidentität, Vitalparameter,
+Krankengeschichte und Medikation unerlässlich. Daher sind die beteiligten Geräte
+vor unberechtigtem Zugriff und vor Ausspähen zu schützen. Ein möglicher Ansatz ist
+die Erweiterung WS-Security für SOAP aus der WS-*-Familie. WS-Security erlaubt es,
+SOAP-Nachrichten zu signieren, um die Integrität der Nachricht nachzuweisen; Nachrichten
+können verschlüsselt übertragen werden, um Vertraulichkeit sicherzustellen
+und es kann über Sicherheitstoken die Identität des Absenders bewiesen werden."
+
+BLAA BLKI
