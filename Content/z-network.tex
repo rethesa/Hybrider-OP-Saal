@@ -1,10 +1,100 @@
 \chapter{\iflanguage{ngerman}{Netzwerkkommunikation und Datenaustausch}{Network communication}}
 \label{sec:overview}
-	
+
+Ein digitaler Datenbus der alle wichtigen Daten in Echtzeit zu Verfügung stellt und ermöglicht die medizinischen Geräte im OP-Saal über einen zentralen und übersichtlichen Zugriffspunkt zu steuern, ist im Moment leider noch nicht zur Realität geworden.\\
+Die Netzwerkkommunikation und der Datenaustausch zwischen den Medizinischen Geräten im OP-Saal werden durch herstellerabhängige Schnittstellen stark eingeschränkt. Wer einen in sich funktionierenden Hybriden OP-Saal installieren möchte, muss sich für einen Hersteller entscheiden, denn "eine Integration von Drittanbieterkomponenten kann nur in Kooperation mit dem Hersteller des Integrationssystems erfolgen" \cite{DerDigitaleOperationssaal}.
+
+Um diesen Problem entgegen zu wirken, wurde für herstellerübergreifende Netzwerkkommunikation die Service Oriented Architecture für den medizinischen Gebrauch angepasst und zum ungehinderten Datenaustausch Standards wie DICOM, HL7 und IHE entwickelt.
+
 \subsection{Service Oriented Architecture}
+In der für den medizinischen Gebrauch angepasste Service Oriented Architecture (SOA) interagieren Service Provider und Service Consumer über einen Open Surgical Communication Bus (OSCB). Dabei können die medizinischen Geräte sowohl Service Provider als auch Consumer sein und Dienste über eine standardisierte Schnittstelle nutzen bzw. bereitstellen. Der Service Manager verwaltet alle verfügbaren Geräte und Dienste im Netzwerk. Service Consumer können dann über den Service Manager Dienste und Geräte anfragen, welcher dann verfügbare und passende Service Provider zurück gibt. Nach diesem Schritt läuft die Kommunikation direkt zwischen Consumer und Provider ab. 
+Die Übertragung von Daten und die Kommunikation zwischen den medizinischen Geräten läuft also immer über den OSCB ab. Um eine reibungslose Vernetzung zu ermöglichen sind standardisierte herstellerübergreifende Schnittstellen essentiell.  
+Für Geräte die kein standardisiertes Datenformat (wie DICOM) zu Verfügung stellen, übernimmt ein Konnektor die Aufgabe der Transformation und ermöglicht eine breitere Bandbreite an Geräten die verwendet werden können. Kommunikation die über den OP hinaus mit anderen Netzwerken der Klinik statt findet, wird immer über eine Gateway geleitet, um eine hohe Sicherheit zu gewährleisten.
+Weiter optionale Komponenten in der SOA sind der Event Manager, welcher auftretende Ereignisse verwaltet und gegebenenfalls andere Geräte im Netzwerk darüber informiert und das Monitoring System, welches zur Unterstützung des Service Managers eingesetzt wird, zur Überwachung alle angeschlossenen Geräte um fehlerhafte Services zu identifizieren \cite{DerDigitaleOperationssaal}. 
+
+Webservices bieten durch ihre lose Client Server Kopplung und einfache Erweiterbarkeit eine gute Möglichkeit, um SOA im medizinischen Umfeld einzusetzen. Zur Verwirklichung des OSCBs bietet Ethernet aufgrund der hohen Bandbreite und der bereits bestehenden Infrastruktur in Krankenhäusern eine gute Grundlage für die Vernetzung. Gleichzeitig ist aber die Gewährung der Sicherheit und Zuverlässigkeit des Systems mit einem höheren Aufwand verbunden als bei anderen Technologien.
+Die tatsächliche Client Server Kommunikation wird dann je nach Anwendungsfall mit TCP oder UPD verwirklicht \cite{DerDigitaleOperationssaal}.
+
+Dieser Ansatz der Umsetzung einer SOA im medizinischen Umfeld, ermöglicht über eine zentrale Anzeige im OP alle Geräte im Netzwerk zu kontrollieren. Dazu gehören nicht nur die bildgebenden Verfahren, sondern auch der OP-Tisch, die Beleuchtungsanlagen und Kameras mit der Anzeigeausgabe auf den Monitoren \cite{DerDigitaleOperationssaal}.
+
+OR.NET ist ein Projekt welches auf der SOA basiert, mit dem Ziel die Gerätekommunikation im OP zu erleichtern, Echtzeitkommunikation möglich zu machen und eine internationale Normung festzulegen.
+%TODO hier noch mehr dazu schreiben, also was genau OR.NET kann --> wie im video beschrieben
+
+\subsection{Medizinische Standards}
+
+\subsubsection{DICOM und PACS:}
+
+DICOM (Digital Imaging and COmmunications in Medicine) ist ein schnittstellenkompatibles Datenformat für digitale medizinische Bildgebung. Es fungiert dabei nicht nur als Bildformat, sondern wird auch zum senden, verteilen und speichern medizinischer Bilder verwendet die von den bildgebenden Geräten (wie CT, MRT, US,..) erzeugt werden. Dabei ist das Ergebnis unabhängig vom Aufnahmegerät und Hersteller. DICOM ist auch für die richtige Darstellung der Bilder verantwortlich und ermöglicht nachträgliche Bildverarbeitung.
+Zusätzlich bietet dieser Standard ideale Bedingungen um mit medizinischen Bildern zu arbeiten. So werden beispielsweise bis zu 65.536 (16 Bit) Grauschattierungen unterstützt, wobei im Gegensatz dazu bei einem JPG nur 256 verschiedene Grautöne möglich sind. Das verhilft selbst kleinste Details im aufgenommenen Bild richtig darzustellen und für den Chirurg erkenntlich zu machen. Zu jedem aufgenommenem Bild werden alle zusätzliche Daten, wie die Patienteninformationen oder Position des bildgebenden Geräts bei der Aufnahme, gespeichert \cite{DICOM}.
+
+%
+%Die Fort schrei bung er folg te dann 1993
+%als DI COM 3.0, wo bei die Fest le gung auf
+%eine Netzwerk-basier te Kommu ni ka ti on
+%mit tels TCP/IP-Pro to koll (TCP/IP: Transmission
+%Con trol Pro to col/In ter net Pro tocol)
+%ent spre chend dem ISO/OSI-Mo dell
+%(ISO/OSI: open systems in ter connec tion
+%of the in ter na tional orga ni za ti on for standar
+%diza tion) ge trof fen wur de. 
+%...
+%- Datenstrukturen für medizinische Bilder und assoziierte Daten,
+%- Netzwerk dienste für Bildtransfer oder -aus druck,
+%- Forma te für Medienaustausch,
+%- Workflowmanagement,
+%- Qualitätsaspekte zur konsistenten Darstellung von Bildern,
+%- Anforderun gen an die Konformität von Produkten.
+%\cite{DICOMundIHE}
+
+Die Übertragung dieser Bilder im DICOM Format läuft dann über das DICOM Netzwerk und wird von PACS archiviert. PACS (Picture Archiving and Communication System) arbeitet sehr eng mit DICOM zusammen und bietet ein digitales Archiv zur Speicherung der vom bildgebenden Gerät erfassten Patientendaten. Von dort aus kann problemlos vom Personal auf die Bilder zugegriffen werden \cite{DICOM}.
+
+\subsubsection{HL7:}
+HL7 (Health Level Seven) ist ein weiteres schnittstellenkompatibles Datenformat wie DICOM \cite{DerDigitaleOperationssaal} und bietet einen Standard für den Transfer, die Integration, das Teilen und Abrufen von digitalen Gesundheitsinformationen. Dabei wird festgelegt, mit welcher Sprache, Struktur und Datentypen Informationen in Pakete verpackt und versendet werden \cite{HL7}.
+
+%HL7 Kommunikationsstandard \cite{DICOMundIHE}
 
 
-\subsection{DICOM und PACS}
 
+
+\subsubsection{IHE:}
+IHE (Integrating the Healthcare Enterprise) baut auf Standards wie DICOM und HL7 auf und soll das Zusammenwirken und die Kommunikation unterschiedlicher IT-Systeme im medizinischen Umfeld verbessern \cite{DICOMundIHE}.
+
+%()IHE is an initiative by healthcare professionals and industry to improve the way %computer systems in healthcare share information. IHE promotes the coordinated use %of established standards such as DICOM and HL7 to address specific clinical needs %in support of optimal patient care. Systems developed in accordance with IHE %communicate with one another better, are easier to implement, and enable care %providers to use information more effectively \cite{IHE}
 
 \subsection{Sicherheitsprobleme und Datenschutz}
+
+%5Durch die Vernetzung und den Austausch von Daten über ein Local Area Network
+%werden die medizinischen Geräte enger in die IT-Welt eingebunden und sind von
+%Gefahren betroffen. Es müssen Verfahren zum Schutz des klinischen IT-Netzwerkes
+%implementiert und validiert werden. Als grundlegende Schutzmaßnahme wurde ein
+%Gateway vorgesehen, was jedoch alleine nicht ausreichend ist.
+%...
+%Durch die Vernetzung ergeben sich
+%neue Möglichkeiten des Zugriffs. Es muss unter anderem sichergestellt werden, dass
+%ein Medizingerät nur authentisierte, verifizierte und validierte Befehle entgegennimmt
+%und ausführt. Insbesondere muss sichergestellt werden, dass das befehlende Gerät zur
+%Abgabe der entsprechenden Befehle berechtigt ist.
+%Die geforderten Eigenschaften [37] zur Informationssicherheit in IT-Netzwerken
+%gelten insbesondere für Systeme mit Medizinprodukten. Die wichtigsten Anforderungen
+%sind Vertraulichkeit und Integrität. Im Hinblick auf den Datenschutz ist eine vertrauliche
+%Übermittlung von sensiblen Daten wie Patientenidentität, Vitalparameter,
+%Krankengeschichte und Medikation unerlässlich. Daher sind die beteiligten Geräte
+%vor unberechtigtem Zugriff und vor Ausspähen zu schützen. Ein möglicher Ansatz ist
+%die Erweiterung WS-Security für SOAP aus der WS-*-Familie. WS-Security erlaubt es,
+%SOAP-Nachrichten zu signieren, um die Integrität der Nachricht nachzuweisen; Nachrichten
+%können verschlüsselt übertragen werden, um Vertraulichkeit sicherzustellen
+%und es kann über Sicherheitstoken die Identität des Absenders bewiesen werden.
+% \cite{DerDigitaleOperationssaal} Kapitel 3
+
+
+%
+%Ver traulichkeitsschutz
+%In Sup pl. 55 ist spezifi ziert, wie die Ver traulich
+%keit be stimm ter An teile eines DI COMOb
+%jekts ge sichert wer den soll te, da mit können
+%nur die Nut zer, die über den ent sprechenden
+%pri va ten Schlüssel ver fü gen, den
+%kom plet ten Da ten satz ein se hen. Alle an deren
+%wer den nur den un ver schlüssel ten Teil
+%nutzen können. \cite{DICOMundIHE}
+%
