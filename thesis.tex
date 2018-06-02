@@ -65,25 +65,6 @@
 }
 
 
-%% ------------------------
-%% |    Including files   |
-%% ------------------------
-% Only files listed here will be included!
-% Userful command for partially translating the document (for bug-fixing e.g.)
-% \includeonly{%
-% Content/0-Declaration,
-% Content/0-Abstract_EN,
-% Content/0-Abstract_DE,
-% Content/1-Introduction,
-% Content/2-State-of-the-art,
-% Content/3-Methods,
-% Content/4-Concept,
-% Content/5-Implementation,
-% Content/6-Results,
-% Content/7-Discussion,
-% Content/8-Conclusion,
-% Content/11-Appendix,
-% }
 
 \settitle
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -124,15 +105,6 @@
 %% -----------------
 \setmainpart
 
-%TODO wieder hinzufügen, falls es doch irgendwie noch gebraucht wird
-%%\include{Content/1-Introduction}
-%%\include{Content/2-State-of-the-art}
-%%\include{Content/3-Methods}
-%%\include{Content/4-Concept}
-%%\include{Content/5-Implementation}
-%%\include{Content/6-Results}
-%%\include{Content/7-Discussion}
-%%\include{Content/8-Conclusion}
 \include{Content/z-overview}
 \include{Content/z-network}
 \include{Content/z-challenges}
@@ -144,11 +116,10 @@
 \bibliography{Bibliography/thesis}
 
 
-
 %% ----------------
 %% |   Appendix   |
 %% ----------------
 % \cleardoublepage
-\include{Content/11-Appendix}
+%\include{Content/11-Appendix}
 
 \end{document}
