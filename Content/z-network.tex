@@ -22,79 +22,28 @@ OR.NET ist ein Projekt welches auf der SOA basiert, mit dem Ziel die Gerätekomm
 
 \subsection{Medizinische Standards}
 
-\subsubsection{DICOM und PACS:}
+Zur Kompatibilität medizinischer Geräte und Systeme unterschiedlicher Hersteller müssen gewisse Standards definiert werden.
 
-DICOM (Digital Imaging and COmmunications in Medicine) ist ein schnittstellenkompatibles Datenformat für digitale medizinische Bildgebung. Es fungiert dabei nicht nur als Bildformat, sondern wird auch zum senden, verteilen und speichern medizinischer Bilder verwendet die von den bildgebenden Geräten (wie CT, MRT, US,..) erzeugt werden. Dabei ist das Ergebnis unabhängig vom Aufnahmegerät und Hersteller. DICOM ist auch für die richtige Darstellung der Bilder verantwortlich und ermöglicht nachträgliche Bildverarbeitung.
-Zusätzlich bietet dieser Standard ideale Bedingungen um mit medizinischen Bildern zu arbeiten. So werden beispielsweise bis zu 65.536 (16 Bit) Grauschattierungen unterstützt, wobei im Gegensatz dazu bei einem JPG nur 256 verschiedene Grautöne möglich sind. Das verhilft selbst kleinste Details im aufgenommenen Bild richtig darzustellen und für den Chirurg erkenntlich zu machen. Zu jedem aufgenommenem Bild werden alle zusätzliche Daten, wie die Patienteninformationen oder Position des bildgebenden Geräts bei der Aufnahme, gespeichert \cite{DICOM}.
+Einer dieser Standards ist DICOM (Digital Imaging and COmmunications in Medicine). DICOM ist ein schnittstellenkompatibles Datenformat für digitale medizinische Bildgebung. Es fungiert dabei nicht nur als Bildformat, sondern wird auch zum senden, verteilen und speichern medizinischer Bilder verwendet die von den bildgebenden Geräten (wie CT, MRT, US,..) erzeugt werden. Dabei ist das Ergebnis unabhängig vom Aufnahmegerät und Hersteller. DICOM ist auch für die richtige Darstellung der Bilder verantwortlich und ermöglicht nachträgliche Bildverarbeitung.
+Zusätzlich bietet dieser Standard ideale Bedingungen um mit medizinischen Bildern umzugehen. So werden beispielsweise bis zu 65.536 (16 Bit) Grauschattierungen unterstützt, wobei im Gegensatz dazu bei einem JPG nur 256 verschiedene Grautöne möglich sind. Das verhilft selbst kleinste Details im aufgenommenen Bild richtig darzustellen und für den Chirurg erkenntlich zu machen. Zusätzlich werden zu jedem aufgenommenem Bild alle Daten, wie die Patienteninformationen oder Position des bildgebenden Geräts bei der Aufnahme, gespeichert \cite{DICOM}.
 
-%
-%Die Fort schrei bung er folg te dann 1993
-%als DI COM 3.0, wo bei die Fest le gung auf
-%eine Netzwerk-basier te Kommu ni ka ti on
-%mit tels TCP/IP-Pro to koll (TCP/IP: Transmission
-%Con trol Pro to col/In ter net Pro tocol)
-%ent spre chend dem ISO/OSI-Mo dell
-%(ISO/OSI: open systems in ter connec tion
-%of the in ter na tional orga ni za ti on for standar
-%diza tion) ge trof fen wur de. 
-%...
-%- Datenstrukturen für medizinische Bilder und assoziierte Daten,
-%- Netzwerk dienste für Bildtransfer oder -aus druck,
-%- Forma te für Medienaustausch,
-%- Workflowmanagement,
-%- Qualitätsaspekte zur konsistenten Darstellung von Bildern,
-%- Anforderun gen an die Konformität von Produkten.
-%\cite{DICOMundIHE}
+Ein weiterer Standard is tHL7 (Health Level Seven). HL7 ist ein schnittstellenkompatibler Kommunikationsstandard wie DICOM \cite{DerDigitaleOperationssaal} und bietet Protokolle für den Austausch, die Integration, Abfrage und Organisation von digitalen Gesundheitsinformationen die keine Bilddaten sind. Dabei wird festgelegt, mit welcher Sprache, Struktur und Datentypen Informationen in Pakete verpackt und versendet werden \cite{HL7}.
 
-Die Übertragung dieser Bilder im DICOM Format läuft dann über das DICOM Netzwerk und wird von PACS archiviert. PACS (Picture Archiving and Communication System) arbeitet sehr eng mit DICOM zusammen und bietet ein digitales Archiv zur Speicherung der vom bildgebenden Gerät erfassten Patientendaten. Von dort aus kann problemlos vom Personal auf die Bilder zugegriffen werden \cite{DICOM}.
+PACS (Picture Archiving Communication System) ist zur Darstellung, Analyse, Manipulation und zur Langzeit Archivierung aller erworbenen Bild- und Patientendaten. Direkt nachdem die Daten von einem Gerät erfasst wurden stehen sie zur Verfügung und können von mehreren Zugriffspunkten eingesehen werden \cite{PACS}.
+So werden beispielsweise die Bilder im DICOM Format über das DICOM Netzwerk übertragen und dann von PACS als DICOM Objekte archiviert \cite{DICOM}.
 
-\subsubsection{HL7:}
-HL7 (Health Level Seven) ist ein weiteres schnittstellenkompatibles Datenformat wie DICOM \cite{DerDigitaleOperationssaal} und bietet einen Standard für den Transfer, die Integration, das Teilen und Abrufen von digitalen Gesundheitsinformationen. Dabei wird festgelegt, mit welcher Sprache, Struktur und Datentypen Informationen in Pakete verpackt und versendet werden \cite{HL7}.
+Die genannten Standards weisen jedoch auch gewisse Limitierungen auf aus welchem Grund IHE (Integrating the Healthcare Enterprise) entwickelt wurde. Dabei baut es auf Standards wie DICOM und HL7 auf und soll das Zusammenwirken sowie die Kommunikation unterschiedlicher IT-Systeme im medizinischen Umfeld verbessern \cite{DICOMundIHE}. 
+IHE ist eine Initiative von Gesundheitsexperten, um die Art und Weise zu verbessern, wie Computersysteme miteinander interagieren und Informationen austauschen. Die Kommunikation zwischen unterschiedlichen Systemen wird verbessert, ist einfacher zu implementieren und ermöglicht Informationen effektiver zu nutzen\cite{IHE}.
 
-%HL7 Kommunikationsstandard \cite{DICOMundIHE}
-
-
-
-
-\subsubsection{IHE:}
-IHE (Integrating the Healthcare Enterprise) baut auf Standards wie DICOM und HL7 auf und soll das Zusammenwirken und die Kommunikation unterschiedlicher IT-Systeme im medizinischen Umfeld verbessern \cite{DICOMundIHE}.
-
-%()IHE is an initiative by healthcare professionals and industry to improve the way %computer systems in healthcare share information. IHE promotes the coordinated use %of established standards such as DICOM and HL7 to address specific clinical needs %in support of optimal patient care. Systems developed in accordance with IHE %communicate with one another better, are easier to implement, and enable care %providers to use information more effectively \cite{IHE}
+Damit kann die Kompatibilität herstellerübergreifender Geräte und Systeme realisiert werden was zu einer höheren Flexibilität im Operationssaal führt \cite{DerDigitaleOperationssaal}.
 
 \subsection{Sicherheitsprobleme und Datenschutz}
 
-%5Durch die Vernetzung und den Austausch von Daten über ein Local Area Network
-%werden die medizinischen Geräte enger in die IT-Welt eingebunden und sind von
-%Gefahren betroffen. Es müssen Verfahren zum Schutz des klinischen IT-Netzwerkes
-%implementiert und validiert werden. Als grundlegende Schutzmaßnahme wurde ein
-%Gateway vorgesehen, was jedoch alleine nicht ausreichend ist.
-%...
-%Durch die Vernetzung ergeben sich
-%neue Möglichkeiten des Zugriffs. Es muss unter anderem sichergestellt werden, dass
-%ein Medizingerät nur authentisierte, verifizierte und validierte Befehle entgegennimmt
-%und ausführt. Insbesondere muss sichergestellt werden, dass das befehlende Gerät zur
-%Abgabe der entsprechenden Befehle berechtigt ist.
-%Die geforderten Eigenschaften [37] zur Informationssicherheit in IT-Netzwerken
-%gelten insbesondere für Systeme mit Medizinprodukten. Die wichtigsten Anforderungen
-%sind Vertraulichkeit und Integrität. Im Hinblick auf den Datenschutz ist eine vertrauliche
-%Übermittlung von sensiblen Daten wie Patientenidentität, Vitalparameter,
-%Krankengeschichte und Medikation unerlässlich. Daher sind die beteiligten Geräte
-%vor unberechtigtem Zugriff und vor Ausspähen zu schützen. Ein möglicher Ansatz ist
-%die Erweiterung WS-Security für SOAP aus der WS-*-Familie. WS-Security erlaubt es,
-%SOAP-Nachrichten zu signieren, um die Integrität der Nachricht nachzuweisen; Nachrichten
-%können verschlüsselt übertragen werden, um Vertraulichkeit sicherzustellen
-%und es kann über Sicherheitstoken die Identität des Absenders bewiesen werden.
-% \cite{DerDigitaleOperationssaal} Kapitel 3
+Mit der Digitalisierung und damit verbundenen Vernetzung der Geräte und Systeme im Operationssaal, spielt auch die Gewährleistung der Sicherheit und des Datenschutzes eine immer wichtigere Rolle.
+Durch die enge Einbindung der medizinischen Geräte in das Netzwerk sind diese vermehrt Gefahren ausgesetzt und es müssen Schutzmaßnahmen ergriffen werden. Wie bereits in der Service Oriented Architecture erläutert, findet jegliche Kommunikation über den Operationssaal hinaus über ein Gateway statt. Eine Firewall wird eingesetzt, um den Datenverkehr zwischen dem OP- und Klinik-Netzwerk zu überwachen und gegebenenfalls Angriffe von außerhalb abzuwehren. Das alleine ist jedoch noch nicht ausreichend, sondern es muss zusätzlich auch sichergestellt werden, dass "ein Medizingerät nur authentisierte, verifizierte und validierte Befehle entgegennimmt und ausführt" \cite{DerDigitaleOperationssaal}. \\
+Besonders im Bezug auf den Datenschutz ist eine "vertrauliche Übermittlung von sensiblen Daten wie Patientenidentität, Vitalparameter, Krankengeschichte und Medikation unerlässlich" \cite{DerDigitaleOperationssaal}, weshalb die Geräte und Daten vor unerlaubten Lese- und Schreibzugriffen geschützt werden müssen. Aus diesem Grunde müssen zur Sicherstellung von Integrität und Vertraulichkeit Nachrichten signiert und verschlüsselt werden \cite{DerDigitaleOperationssaal}. 
 
+Wenn man beispielsweise Zugriff auf eine DICOM Datei hat, dann kann man selbst mit einem primitiven Editor wie Notepad ganz einfach sensible Daten wie den Patientennamen, behandelnden Arzt und das Krankenhaus herauslesen und verändern. Selbst das DICOM Bild kann mit geringen Programmierkenntnissen oder mit passender verfügbarer Software betrachtet, bearbeitet oder einfach ausgetauscht werden.\\
+Aus diesem Grund ist es so wichtig, das Netzwerk und die versendeten Daten vor unberechtigtem Zugriff und Manipulation zu schützen bzw. gegebenenfalls zu anonymisieren. Konkret heißt das, dass jegliche Kommunikation über VPN läuft, die übertragenen Daten verschlüsselt und vor dem Lesen das Zugriffsrecht und Sender validiert werden und jeder Computer im Netzwerk durch eine Firewall geschützt wird \cite{DICOM}. 
 
-%
-%Ver traulichkeitsschutz
-%In Sup pl. 55 ist spezifi ziert, wie die Ver traulich
-%keit be stimm ter An teile eines DI COMOb
-%jekts ge sichert wer den soll te, da mit können
-%nur die Nut zer, die über den ent sprechenden
-%pri va ten Schlüssel ver fü gen, den
-%kom plet ten Da ten satz ein se hen. Alle an deren
-%wer den nur den un ver schlüssel ten Teil
-%nutzen können. \cite{DICOMundIHE}
-%
+Die Datenschutz muss in allen Bereichen der digitalen Medizintechnik gewährleistet und sichergestellt werden, wenn mit vertraulichen Daten umgegangen wird. Übergreifend ist damit nicht nur PACS und DICOM bzw. ersatzweise HL7 betroffen, sondern auch Radiologische Informationssysteme (RIS) und Krankenhaus Informationssysteme (HIS) \cite{DICOM}. 

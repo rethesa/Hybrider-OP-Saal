@@ -1,11 +1,3 @@
-@Book{PACS,
-	author = {Dreyer, Keith J. and Hirschhorn, David S. and Thrall, James H. and Metha, Amit},
-	editor = {},
-	title = {PACS - A Guide to the Digital Revolution},
-	publisher = {Springer},
-	year = 2006,
-	isbn = {10: 0-387-26010-2}
-}
 @InBook{CurrentAndFuture,
 	author = {Nollert, Georg and Hartkens, Thomas and Schwabenland, Ina and Sunderbrink, Dirk and Dyck, Anja},
 	editor = {Peter Lanzer},
