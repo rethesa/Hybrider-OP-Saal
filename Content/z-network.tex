@@ -17,8 +17,10 @@ Die tatsächliche Client Server Kommunikation wird dann je nach Anwendungsfall m
 
 Dieser Ansatz der Umsetzung einer SOA im medizinischen Umfeld, ermöglicht über eine zentrale Anzeige im OP alle Geräte im Netzwerk zu kontrollieren. Dazu gehören nicht nur die bildgebenden Verfahren, sondern auch der OP-Tisch, die Beleuchtungsanlagen und Kameras mit der Anzeigeausgabe auf den Monitoren \cite{DerDigitaleOperationssaal}.
 
-OR.NET ist ein Projekt welches auf der SOA basiert, mit dem Ziel die Gerätekommunikation im OP zu erleichtern, Echtzeitkommunikation möglich zu machen und eine internationale Normung festzulegen.
-%TODO hier noch mehr dazu schreiben, also was genau OR.NET kann --> wie im video beschrieben
+OR.NET ist ein Projekt welches auf der SOA basiert und ein Paradebeispiel für die Integration von medizinischen Geräten und IT-Systemen darstellt. Ziel  ist es die Gerätekommunikation im OP zu erleichtern, Echtzeitkommunikation möglich zu machen und eine internationale Normung für alle Operationssäle festzulegen. 
+Zur Umsetzung dieses Projekts wurde ein neuer Substandard entwickelt. Dieser soll jedoch nicht bereits vorhandene Standards wie HL7 oder DICOM ersetzen, sondern Geräte und Systeme in das IT-Netzwerk einbinden, welche die genannten Standards nicht umsetzen können.
+Zur Demonstration der Funktionsweise und Umsetzbarkeit von OR.NET wurde ein komplett funktionsfähiger Operationssaal zusammengestellt, der alle benötigten medizinische Geräte und klinische IT-Systeme von unterschiedlichen Herstellern vereint \cite{ORnet}.
+Damit konnte gezeigt werden, dass eine einheitliche Mensch Maschine Interaktion unabhängig vom Gerät möglich ist. Durch die Vernetzung aller Daten kann währen dem OP auf präoperativ angefertigte Bilddateien, Patienteninformationen und Laborbefunde zugegriffen werden. Auch von außerhalb des OPs kann der Oberarzt alle wichtigen Informationen einsehen, die im OP erfasst und aufgezeichnet werden. Neue Funktionalitäten, wie eine Datenbrille über die der Chirurg direkt Blutdruck und Herzfrequenz des Patienten übermittelt bekommt ohne seinen Blick abwenden zu müssen, können problemlos in das vernetzte System integriert werden. Alle chirurgischen Geräte können direkt angesteuert und teilweise auch mit Fußschaltern vom Chirurgen bedient werden und dieser ist dann nicht mehr so sehr auf Assistenten angewiesen \cite{ORnetWebsite}.
 
 \subsection{Medizinische Standards}
 
@@ -35,7 +37,7 @@ So werden beispielsweise die Bilder im DICOM Format über das DICOM Netzwerk üb
 Die genannten Standards weisen jedoch auch gewisse Limitierungen auf aus welchem Grund IHE (Integrating the Healthcare Enterprise) entwickelt wurde. Dabei baut es auf Standards wie DICOM und HL7 auf und soll das Zusammenwirken sowie die Kommunikation unterschiedlicher IT-Systeme im medizinischen Umfeld verbessern \cite{DICOMundIHE}. 
 IHE ist eine Initiative von Gesundheitsexperten, um die Art und Weise zu verbessern, wie Computersysteme miteinander interagieren und Informationen austauschen. Die Kommunikation zwischen unterschiedlichen Systemen wird verbessert, ist einfacher zu implementieren und ermöglicht Informationen effektiver zu nutzen\cite{IHE}.
 
-Damit kann die Kompatibilität herstellerübergreifender Geräte und Systeme realisiert werden was zu einer höheren Flexibilität im Operationssaal führt \cite{DerDigitaleOperationssaal}.
+Damit kann die Kompatibilität herstellerübergreifender Geräte und Systeme realisiert werden was zu einer höheren Flexibilität und verbesserten Möglichkeiten im Operationssaal führt \cite{DerDigitaleOperationssaal}.
 
 \subsection{Sicherheitsprobleme und Datenschutz}
 
