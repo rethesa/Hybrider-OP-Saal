@@ -189,10 +189,10 @@
 \newcommand{\printgrouplogo}{\includegraphics[width=5cm,height=1.8cm,keepaspectratio]{Logos/\thegrouplogo}}
 \newcommand{\nogrouplogo}{\renewcommand{\printgrouplogo}{}}
 
-\ifKITthesis@seminar
-\else
+%\ifKITthesis@seminar
+%\else
   \nogrouplogo
-\fi
+%\fi
 
 \titlehead{%
 
@@ -237,7 +237,7 @@
 
 \newcommand{\titlepreamble}{}
 \ifKITthesis@seminar
-  \renewcommand{\titlepreamble}{Seminar \thethesistype}
+  \renewcommand{\titlepreamble}{\LARGE Seminar \thethesistype}
 \fi
 \ifKITthesis@techreport
   \renewcommand{\titlepreamble}{\thethesistype}

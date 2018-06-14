@@ -1,9 +1,3 @@
-@electronic{CTBild,
-	url = {https://www.medneo.com/de/potsdam/zentrum/diagnostik/ct/region/bauchraum/magenzwoelffingerdarm-1/},
-	timestamp = {2018-06-12-T19:00},
-	title = {Meine Gesundheit, meine Untersuchung},
-	publisher = {medneo}
-}
 @electronic{BauaortenaneurysmaBild,
 	url = {https://www.gesundheitsinformation.de/wann-ist-bei-einem-bauchaortenaneurysma-ein.2716.de.html?part=behandlung-yk},
 	timestamp = {2018-06-03T15:30},
