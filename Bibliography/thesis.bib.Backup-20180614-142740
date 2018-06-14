@@ -1,14 +1,3 @@
-@electronic{Ultraschall,
-	url = {https://www.ipe.kit.edu/167.php },
-	timestamp = {2018-06-12T16:00},
-	title = {Brustkrebsfr\"uherkennung durch Ultraschall Computertomographie}
-}
-@electronic{EndosamuraiBild,
-	url = {https://www.researchgate.net/figure/Flexible-endoscopic-platforms-A-EndoSamurai-Olympus-Tokyo-Japan-and-B_fig2_263705746},
-	timestamp = {2018-06-12T15:00},
-	title = {Flexible endoscopic platforms, EndoSamurai (Olympus, Tokyo, Japan) },
-	publisher = {Research Gate}
-}
 @electronic{CTBild,
 	url = {https://www.medneo.com/de/potsdam/zentrum/diagnostik/ct/region/bauchraum/magenzwoelffingerdarm-1/},
 	timestamp = {2018-06-12-T19:00},
