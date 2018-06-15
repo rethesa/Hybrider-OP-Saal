@@ -1,14 +1,5 @@
-%% Version: 0.2 (31.01.2018)
-
-%% Choose language: english or german
-%% Choose Thesis type: seminar, bachelor, master, techreport
-%% Use 'declaration' parameter if you want to generate declaration page
-%% Use 'final' to disable Todo-notes from final version without deleting each one of them
 \documentclass[german,seminar]{KITthesis}
 
-%% ---------------------------------
-%% | Information about the thesis  |
-%% ---------------------------------
 \title{\Huge Hybrider OP-Saal}
 \titleotherlanguage{Hybrid Operating Room}
 
@@ -20,81 +11,30 @@
 \keywords{Hybrider OP-Saal, Netzwerkkommunikation, Datenaustausch, Herausforderungen}
 \keywordsotherlanguge{Hybrid Operating Room, Network Communication, Data Exchange, Challenges}
 
-%% Study program or a seminar/subject
 \studyprogram{\LARGE Informatik in der Medizin}
-
-%% Name of your institute (Default: IAR-IPR)
-% \institute{}
-%% Name of your faculty (Default: KIT-Fakultät für Informatik
-% \KITfaculty{}
-%% Address of your institute (Default: Engler-Bunte-Ring 8)
-% \instituteaddress{}
-%% Insitute City (Default: 76131 Karlsruhe)
-% \institutecity{}
 
 \reviewerone{Prof. Dr.-Ing. Torsten Kröger}
 \reviewertwo{Prof. Dr.-Ing. habil. Björn Hein}
-%
-% %% The advisors are PhDs or Postdocs
+
 \advisorone{M.Sc. Christian Marzi}
 % %% The second advisor can be omitted
 \advisortwo{M.Sc. D}
-%
-% %% Please enter the start end end time of your thesis
+
 \editingtime{16. April 2018}{18. Juni 2018}
-
-%% --------------------------------
-%% | Settings for word separation |
-%% --------------------------------
-% Help for separation:
-% In german package the following hints are additionally available:
-% "- = Additional separation
-% "| = Suppress ligation and possible separation (e.g. Schaf"|fell)
-% "~ = Hyphenation without separation (e.g. bergauf und "~ab)
-% "= = Hyphenation with separation before and after
-% "" = Separation without a hyphenation (e.g. und/""oder)
-
-% Describe separation hints here:
-\hyphenation{
-% Pro-to-koll-in-stan-zen
-% Ma-na-ge-ment  Netz-werk-ele-men-ten
-% Netz-werk Netz-werk-re-ser-vie-rung
-% Netz-werk-adap-ter Fein-ju-stier-ung
-% Da-ten-strom-spe-zi-fi-ka-tion Pa-ket-rumpf
-% Kon-troll-in-stanz
-}
 
 \usepackage{graphicx}
 \usepackage[format=plain, indention=0cm]{caption}
 \usepackage{babel,blindtext}
 
-
 \settitle
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Here, main documents begins %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
-%% Set PDF metadata
 \setpdf
-
-%% Title Page
 \includetitle
-
 \includedeclaration
-
 \includeacknowledgments
 
-%% ----------------
-%% |   Abstract   |
-%% ----------------
-%% An abstract both in English
-%% and German is mandatory.
-%%
-%% The text is included from the following files:
-%% - Content/0-Abstract_EN
-%% - Content/0-Abstract_DE
-\includeabstract
 
 \inculdetableofcontents
 
